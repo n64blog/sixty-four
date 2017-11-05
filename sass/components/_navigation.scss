@@ -1,0 +1,43 @@
+.menu {
+  float: right;
+  margin: 0;
+  font-family: $font-display;
+
+  @include above-tablet {
+    @include flexbox;
+  }
+
+  &-item {
+    margin: 0;
+  }
+
+  &-item:last-child {
+    margin: 0;
+  }
+
+  &-item:before {
+    content: none;
+  }
+
+  &-item > a {
+    display: block;
+    color: $white;
+    padding: 1.25rem 1.5rem;
+
+  }
+
+  &-item > a:hover {
+    background-color: darken($black, 5%);
+  }
+
+}
+
+.current-menu-item a,
+.current-post-parent a {
+  background-color: $green;
+
+  &:hover {
+    background-color: darken($green, 5%);
+  }
+
+}

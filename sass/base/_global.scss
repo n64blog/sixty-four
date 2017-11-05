@@ -1,0 +1,12 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: $black;
+  font-family: $font-body;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  background-color: $black;
+}

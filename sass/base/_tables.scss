@@ -1,0 +1,19 @@
+table {
+  text-align: left;
+  margin: 0 0 $gutter;
+  border: 1px solid $black;
+  border-collapse: collapse;
+
+  & tr th {
+    border-bottom: 3px solid $black;
+    border-right: 1px dotted transparentize($black, 0.5);
+    padding: ($gutter / 2);
+  }
+
+  & tr td {
+    border-bottom: 1px solid $black;
+    border-right: 1px dotted transparentize($black, 0.5);
+    padding: ($gutter / 2);
+  }
+
+}

@@ -1,0 +1,45 @@
+label {
+  display: block;
+  font-family: $font-display;
+}
+
+input,
+select,
+textarea {
+  border: 0;
+  border-radius: 0;
+  margin: 0 0 $gutter;
+  padding: ($gutter / 2);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+fieldset {
+  border: 1px solid $black;
+  margin: 0 0 $gutter;
+  padding: $gutter;
+}
+
+legend {
+  font-family: $font-display;
+  margin: 0 0 0 ($gutter * -1);
+  padding: 0 $gutter;
+}
+
+input[type='submit']{
+  cursor: pointer;
+  background-color: $black;
+  color: $white;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($black, 10);
+    outline: none;
+  }
+
+}

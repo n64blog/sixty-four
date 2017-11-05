@@ -1,0 +1,48 @@
+/*
+Theme Name: Sixty Four
+Theme URI: http://n64today.com
+Author: Ash Smith
+Author URI: http://ashleysmithdesign.co.uk
+Description: Custom theme for a kickass n64 blog
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: sixty-four
+Tags: custom
+*/
+
+
+/////////////////////////////////////
+// ABSTRACTS
+// Variables, Mixins and fonts are defined here
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/fonts';
+
+
+/////////////////////////////////////
+// BASE
+// Base styling for HTML is defined here
+@import 'base/reset';
+@import 'base/global';
+@import 'base/typography';
+@import 'base/lists';
+@import 'base/tables';
+@import 'base/forms';
+@import 'base/media';
+
+
+/////////////////////////////////////
+// COMPONENTS
+// Site components are defined here e.g. navigation
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/footer';
+@import 'components/grid';
+@import 'components/layout';
+@import 'components/pagination';
+@import 'components/icons';
+@import 'components/hero';
+@import 'components/game-meta';
+@import 'components/review-scoring';
+@import 'components/post-preview';

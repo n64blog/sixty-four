@@ -1,0 +1,17 @@
+.pak {
+  height: 52px;
+  width: 52px;
+  background-color: $red;
+  position: relative;
+  border-radius: 2px;
+
+  svg {
+    position: absolute;
+    fill: $white;
+    width: 42px;
+    height: 42px;
+    top: calc(50% - 21px);
+    left: calc(50% - 21px);
+  }
+
+}

@@ -1,0 +1,26 @@
+.pagination {
+  @include flexbox;
+  @include justify-content(space-between);
+}
+
+.pagination__next,
+.pagination__previous {
+  margin: 0;
+
+  &:before {
+    content: none;
+  }
+
+  & > a {
+    display: block;
+    color: $white;
+    padding: 0.5rem 1rem;
+    background-color: $blue;
+    border-radius: 2px;
+  }
+
+  & > a:hover {
+    background-color: darken($blue, 5%);
+  }
+
+}

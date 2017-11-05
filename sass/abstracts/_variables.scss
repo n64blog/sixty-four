@@ -1,0 +1,39 @@
+// Colours
+$green: #52AC00;
+$yellow: #F8BF28;
+$blue: #3567B0;
+$red: #D0021B;
+
+// Shades
+$white: #FFFFFF;
+$light-grey: #F2F2F2;
+$mid-grey: darken($light-grey, 10%);
+$dark-grey: #454552;
+$black: #383844;
+
+
+/////////////////////////////////////
+// Type settings
+
+// Font familys
+$font-display: 'Montserrat', sans-serif;
+$font-body: 'Roboto', sans-serif;
+
+// Fonts sizes
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+
+/////////////////////////////////////
+// Spacing, sizes and breakpoints
+
+$base-site-width: 1024px;
+
+// Gutter spacing
+$gutter: 1.5rem;
+
+// Breakpoints
+$mobile-width: 450px;
+$tablet-width: 768px;
+$desktop-width: 960px;
+$desktop-lrg-width: $base-site-width;

@@ -1,0 +1,66 @@
+.hero {
+  width: 100%;
+  position: relative;
+  margin-bottom: $gutter;
+
+  @include above-tablet {
+    border-radius: 2px;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    margin-bottom: ($gutter * 2);
+  }
+
+}
+
+.hero__img {
+
+  @include above-tablet {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 2px;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+}
+
+.hero__txt {
+  padding: $gutter;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $blue;
+  border-radius: 0 0 2px 2px;
+  font-size: 80%;
+
+  @include above-tablet {
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+    border-radius: 0;
+    background: rgba(30,30,30,0.75);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, #000 75%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(75%, #000));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, #000 75%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, #000 75%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, #000 75%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #000 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+  }
+
+  @include above-desktop {
+    padding: ($gutter * 4) ($gutter * 2) ($gutter * 2) ($gutter * 2);
+  }
+
+  h2{
+    margin: 0;
+    color: $white;
+  }
+
+}

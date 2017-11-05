@@ -1,0 +1,165 @@
+/* TO-DO REFACTOR */
+
+.score {
+  background-color: darken($black, 2%);
+  margin-bottom: -3rem;
+  padding: 1.5rem 0;
+  color: $white;
+
+  & a {
+    border-bottom: 0;
+  }
+
+}
+
+.score__title {
+  text-transform: capitalize;
+}
+
+.score__bar {
+  width: 100%;
+  height: 32px;
+  background-color: $dark-grey;
+  margin-bottom: 1rem;
+  position: relative;
+  border-radius: 2px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2px 0 0 2px;
+  }
+
+  &--great:after {
+    width: 100%;
+    height: 100%;
+    background-color: $green;
+    animation-name: score-great;
+    animation-duration: 3s;
+  }
+
+  &--good:after {
+    width: 75%;
+    height: 100%;
+    background-color: #CBDA25;
+    animation-name: score-good;
+    animation-duration: 3s;
+  }
+
+  &--flawed:after {
+    width: 50%;
+    height: 100%;
+    background-color: #D38F21;
+    animation-name: score-flawed;
+    animation-duration: 3s;
+  }
+
+  &--bad:after {
+    width: 25%;
+    height: 100%;
+    background-color: $red;
+    animation-name: score-bad;
+    animation-duration: 3s;
+  }
+
+}
+
+@keyframes score-great {
+  0%   {background-color: $red; width: 0%;}
+  25%  {background-color: $red; }
+  50%  {background-color: #D38F21; }
+  75%  {background-color: #CBDA25; }
+  100% {background-color: $green; width: 100%;}
+}
+
+@keyframes score-good {
+  0%   {background-color: $red; width: 0%;}
+  25%  {background-color: $red; }
+  50%  {background-color: #D38F21; }
+  75%  {background-color: #CBDA25; }
+  100% {background-color: #CBDA25; width: 75%;}
+}
+
+@keyframes score-flawed {
+  0%   {background-color: $red; width: 0%;}
+  25%  {background-color: $red; }
+  50%  {background-color: #D38F21; }
+  75%  {background-color: #D38F21; }
+  100% {background-color: #D38F21; width: 50%;}
+}
+
+@keyframes score-bad {
+  0%   {background-color: $red; width: 0%;}
+  25%  {background-color: $red; }
+  50%  {background-color: $red; }
+  75%  {background-color: $red; }
+  100% {background-color: $red; width: 25%;}
+}
+
+
+.breakdown {
+  @include clearfix;
+  margin: 0 0 1.5rem 0;
+
+  &__the-good {
+    @include above-tablet{
+      width: calc(50% - 0.5rem);
+      float: left;
+    };
+  }
+
+  &__the-bad {
+    @include above-tablet{
+      width: calc(50% - 0.5rem);
+      float: right;
+    };
+  }
+
+  &__the-good ul,
+  &__the-bad ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-left: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    & li:before {
+      color: $white;
+      width: 1rem;
+      height: 1rem;
+      text-align: center;
+      border-radius: 2px;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      font-weight: 900;
+    }
+
+  }
+
+  &__the-good ul li:before {
+    content: '+';
+    background-color: $green;
+    line-height: 0.9;
+  }
+
+  &__the-bad ul li:before {
+    content: '−';
+    background-color: $red;
+    line-height: 0.9;
+
+  }
+
+}
+
+.scoring-policy {
+  font-family: $font-display;
+  font-size: 0.75rem;
+}

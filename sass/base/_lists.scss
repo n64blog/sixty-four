@@ -1,0 +1,27 @@
+ul, ol, dl {
+  position: relative;
+  margin: 0 0 1.5em;  // 24px
+}
+
+ul li, ol li {
+  margin-left: 1.5em;
+}
+
+ul li:before {
+  content: '•';
+  position: absolute;
+  left: 0.75em;
+  font-weight: bold;
+}
+
+ol {
+  counter-reset: section;
+}
+
+ol li:before {
+  counter-increment: section;
+  content: counter(section);
+  position: absolute;
+  left: 0.5em;
+  font-weight: bold;
+}
