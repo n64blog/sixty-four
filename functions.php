@@ -35,6 +35,10 @@ add_action( 'widgets_init', 'sixty_four_widgets_init' );
 /* Enqueue scripts and styles. */
 function sixty_four_scripts() {
 	wp_enqueue_style( 'sixty-four-style', get_stylesheet_uri() );
+
+	// Enqueue jquery and custom script
+	wp_register_script('custom_script', home_url() . '/wp-content/themes/sixty-four/js/navigation.js', array( 'jquery' ));
+  wp_enqueue_script('custom_script');
 }
 
 add_action( 'wp_enqueue_scripts', 'sixty_four_scripts' );
