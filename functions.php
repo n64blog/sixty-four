@@ -278,6 +278,8 @@ if(function_exists("register_field_group"))
 	));
 }
 
+// Homepage featured post
+
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -312,6 +314,57 @@ if(function_exists("register_field_group"))
 		),
 		'options' => array (
 			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+//Related Posts
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_related-posts',
+		'title' => 'Related Posts',
+		'fields' => array (
+			array (
+				'key' => 'field_5a023bf2fdad7',
+				'label' => 'Related posts',
+				'name' => 'related_posts',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_type',
+					1 => 'post_title',
+				),
+				'max' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),

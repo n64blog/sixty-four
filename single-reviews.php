@@ -21,12 +21,18 @@ get_header(); ?>
 		<div class="grid__col grid__col--8-of-12">
 			<div class="post-content">
 				<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
-				<?php the_content(); ?> 
+				<?php the_content(); ?>
 			</div>
 		</div>
 
 		<div class="grid__col grid__col--4-of-12">
+			<!-- Game meta -->
 			<?php get_template_part('inc/game', 'meta'); ?>
+			<!--/ Game meta -->
+
+			<!-- Related Posts -->
+			<?php get_template_part('inc/related-posts'); ?>
+			<!--/ Related Posts -->
 		</div>
 	</div>
 

@@ -1,0 +1,60 @@
+.related-posts {
+  margin: 0;
+  padding: 1.5rem;
+  background-color: $blue;
+  border-radius: 3px;
+  position: relative;
+
+  & h2 {
+    color: $white;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+  }
+
+  & > ul {
+    margin: 0;
+  }
+
+  & > ul > li {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+  }
+
+  & > ul > li:last-child {
+    margin: 0;
+  }
+
+
+  & > ul > li:before {
+    content: none;
+  }
+
+}
+
+.related-post {
+
+  &__img {
+    display: block;
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__txt {
+    border-radius:  0 0 3px 3px;
+    background-color: lighten($blue, 10%);
+    color: $white;
+    padding: 0.75rem;
+    display: block;
+  }
+
+  &__txt:hover{
+    background-color: lighten($blue, 5%);
+    color: $white;
+  }
+
+
+  &__txt > h3 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+}

@@ -24,6 +24,9 @@ get_header(); ?>
 		</div>
 
 		<div class="grid__col grid__col--4-of-12">
+			<!-- Related Posts -->
+			<?php get_template_part('inc/related-posts'); ?>
+			<!--/ Related Posts -->
 			<?php get_sidebar(); ?>
 		</div>
 	</div>
