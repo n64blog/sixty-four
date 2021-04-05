@@ -16,7 +16,7 @@
     color: $white;
     padding: 0.5rem 1rem;
     background-color: $blue;
-    border-radius: 2px;
+    border-radius: $radius;
   }
 
   & > a:hover {

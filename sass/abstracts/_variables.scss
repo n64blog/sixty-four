@@ -6,10 +6,10 @@ $red: #D0021B;
 
 // Shades
 $white: #FFFFFF;
-$light-grey: #F2F2F2;
-$mid-grey: darken($light-grey, 10%);
-$dark-grey: #454552;
-$black: #383844;
+$light-grey: #F7F7F7;
+$mid-grey: darken($light-grey, 5%);
+$dark-grey: #323232;
+$black: #222222;
 
 
 /////////////////////////////////////
@@ -36,4 +36,6 @@ $gutter: 1.5rem;
 $mobile-width: 450px;
 $tablet-width: 768px;
 $desktop-width: 960px;
-$desktop-lrg-width: $base-site-width;
+$desktop-lrg-width: 1440px;
+
+$radius: 6px;

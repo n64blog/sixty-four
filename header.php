@@ -49,11 +49,9 @@
 <body <?php body_class(); ?>>
 
 	<header class="header">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<h1 class="header__logo">
-					<?php get_template_part('images/logo'); ?>
-					<?php bloginfo( 'name' ); ?>
-			</h1>
+		<a class="header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php get_template_part('images/logo'); ?>
+			<?php bloginfo( 'name' ); ?>
 		</a>
 
 		<nav class="header__menu">
@@ -67,5 +65,5 @@
 			?>
 		</nav>
 	</header>
-
+	
 	<div class="page-body">

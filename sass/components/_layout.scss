@@ -1,52 +1,101 @@
 .page-body {
+  margin: auto;
   background-color: $light-grey;
-  width: 100%;
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-  @include clearfix;
+  padding: $gutter 0;
 
-  @include above-tablet {
-    padding-top: $gutter * 2;
-    padding-bottom: $gutter * 2;
+  @include above-desktop {
+    padding: ($gutter * 2) 0;
   }
 
 }
 
 .wrapper {
-  max-width: 1024px;
-  padding: 0 $gutter;
-  margin: auto;
   @include clearfix;
+  max-width: $base-site-width;
+  margin: auto;
+  padding: 0 $gutter;
+  box-sizing: border-box;
 }
 
-.page-title {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 2em;
+.main {
+  width: 100%;
+  margin-bottom: $gutter;
 
-  @include above-tablet {
-    font-size: 2.75em;
+  @include above-desktop {
+    width: calc(100% - 300px);
+    float: left;
+    padding-right: $gutter;
+    box-sizing: border-box;
   }
 
 }
 
-.page-byline {
-  font-family: $font-display;
-  font-size: 1em;
-  margin-top: -1rem;
+.sidebar {
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
 
-  @include above-tablet {
-    font-size: 1.1875em;
+  @include above-desktop {
+    width: 300px;
+    float: left;
   }
 
 }
 
 .featured-img {
   display: block;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 $gutter 0;
   width: 100%;
+  border-radius: $radius;
 }
 
-.post-content {
 
+// Post layout
+
+.post__header {
+
+}
+
+.post__content {
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  @include above-desktop {
+    & > h1,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > p {
+      margin-right: 3rem;
+    }
+  }
+
+  @include above-desktop-lrg {
+    & > h1,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > p {
+      margin-right: 5rem;
+    }
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.post__sidebar {
+  max-width: 450px;
+  margin: auto;
 }

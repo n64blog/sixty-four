@@ -11,11 +11,12 @@
 
 ?>
 
-
 		</div><!-- page-body -->
 
 		<footer class="footer">
-			<p class="footer__copyright">&copy; The written content of this blog is copyright of its respective authors</p>
+			<div class="wrapper">
+				<p class="copyright-notice">&copy; The written content of this blog is copyright of its respective authors</p>
+			</div>
 		</footer>
 
 		<?php wp_footer(); ?>

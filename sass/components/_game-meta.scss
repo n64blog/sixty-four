@@ -1,14 +1,28 @@
 .game-box-art {
   display: block;
   max-width: 100%;
+  margin-bottom: $gutter;
+  border-radius: $radius;
 }
 
 .game-meta {
+  @include container;
   background-color: $red;
   color: $white;
-  padding: $gutter;
   margin-bottom: $gutter;
-  border-radius: 0 0 3px 3px;
+  font-family: $font-display;
+  font-weight: normal;
+  padding-bottom: 1rem;
+
+  h5 {
+    margin-bottom: 0;
+    border: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
 
   & :first-child {
     border-top: 0;
@@ -23,15 +37,11 @@
     content: none;
   }
 
-  :last-child {
-    margin-bottom: 0;
-  }
-
 }
 
 .game-meta__pak-info {
   @include clearfix;
-  border-top: 2px solid darken($red, 5%);
+  border-top: 2px solid $mid-grey;
   padding-top: 1em;
   margin-bottom: 1em;
   padding-left: 64px;

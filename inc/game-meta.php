@@ -33,17 +33,10 @@
 
     ?>
 
-    <?php if( get_field('jpn_release_date') ): ?>
-      <li>Japan: <?php echo $date_jpn->format('F Y'); ?></li>
-    <?php endif; ?>
-
     <?php if( get_field('us_release_date') ): ?>
-      <li>US: <?php echo $date_us->format('F Y'); ?></li>
+      <li><?php echo $date_us->format('Y'); ?></li>
     <?php endif; ?>
 
-    <?php if( get_field('eu_release_date') ): ?>
-      <li>Europe: <?php echo $date_eu->format('F Y'); ?></li>
-    <?php endif; ?>
   </ul>
 
   <?php if( get_field('game_genre') ): ?>

@@ -1,10 +1,9 @@
-/* TO-DO REFACTOR */
-
 .score {
+  @include container;
   background-color: darken($black, 2%);
-  margin-bottom: -3rem;
-  padding: 1.5rem 0;
   color: $white;
+  font-family: $font-display;
+  margin-top: $gutter;
 
   & a {
     border-bottom: 0;
@@ -22,14 +21,15 @@
   background-color: $dark-grey;
   margin-bottom: 1rem;
   position: relative;
-  border-radius: 2px;
+  border-radius: ($radius / 2);
+  overflow: hidden;
 
   &:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 2px 0 0 2px;
+    border-radius: ($radius / 2) 0 0 ($radius / 2);
   }
 
   &--great:after {
@@ -131,30 +131,30 @@
     }
 
     & li:before {
+      content: '';
       color: $white;
       width: 1rem;
       height: 1rem;
       text-align: center;
-      border-radius: 2px;
+      border-radius: ($radius / 2);
       position: absolute;
       left: 0;
       top: 5px;
-      font-weight: 900;
+      background-position: center;
+      background-size: 10px 10px;
+      background-repeat: no-repeat;
     }
 
   }
 
   &__the-good ul li:before {
-    content: '+';
     background-color: $green;
-    line-height: 0.9;
+    background-image: url('../sixty-four/images/plus-icon.png');
   }
 
   &__the-bad ul li:before {
-    content: '−';
     background-color: $red;
-    line-height: 0.9;
-
+    background-image: url('../sixty-four/images/minus-icon.png');
   }
 
 }

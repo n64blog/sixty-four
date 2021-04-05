@@ -9,28 +9,25 @@
 
 get_header(); ?>
 
-<div class="wrapper">
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	<h1 class="page-title"><?php the_title(); ?></h1>
-	<p class="page-byline">by <?php the_author(); ?>, <?php the_date('j F Y') ?></p>
+	<div class="wrapper post">
+		<header class="post__header">
+			<h1><?php the_title(); ?></h1>
+			<p>by <?php the_author(); ?>, <?php the_date('j F Y') ?></p>
+		</header>
+		<main class="main post__content gutenberg">
+			<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
+			<?php the_content(); ?>
+		</main>
+		<aside class="sidebar post__sidebar">
+			<?php dynamic_sidebar( 'sidebar-3' ); ?>
 
-	<div class="grid">
-		<div class="grid__col grid__col--8-of-12">
-			<div class="post-content">
-				<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
-				<?php the_content(); ?>
-			</div>
-		</div>
-
-		<div class="grid__col grid__col--4-of-12">
-			<?php get_sidebar(); ?>
-		</div>
+			<?php get_template_part('inc/related-posts'); ?>
+		</aside>
 	</div>
-	<?php endwhile; endif; ?>
 
-</div>
-
+<?php endwhile; endif; ?>
 
 <?php
 get_footer();

@@ -1,0 +1,68 @@
+.related-posts {
+  margin: 0;
+
+  & h2 {
+    font-size: 1.5em;
+  }
+
+  & > ul {
+    margin: 0;
+  }
+
+  & > ul > li {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+  }
+
+  & > ul > li:last-child {
+    margin: 0;
+  }
+
+
+  & > ul > li:before {
+    content: none;
+  }
+
+}
+
+.related-post {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
+
+  &__img {
+    position: relative;
+    display: block;
+    margin: 0;
+    //border-radius: 3px 3px 0 0;
+  }
+
+  &__txt {
+    @include container;
+    border-radius:  0 0 3px 3px;
+    background-color: transparentize($red, 0.25);
+    color: $white;
+    display: block;
+    margin: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    @include flexbox;
+    @include align-items(flex-end);
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+  }
+
+}
+
+.related-post:hover > .related-post__txt {
+  background-color: darken($red, 5%);
+  background-color: transparentize($red, 0.15);
+  color: $white;
+}

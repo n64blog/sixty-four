@@ -1,0 +1,62 @@
+.gutenberg {
+
+  ul, 
+  ol {
+    margin-bottom: 2rem; 
+  }
+
+  ul li, 
+  ol li {
+    padding-left: 1rem;
+  }
+  
+  ul li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold; 
+  }
+  
+  ol {
+    counter-reset: section; 
+  }
+
+  ol li:before {
+    counter-increment: section;
+    content: counter(section);
+    position: absolute;
+    left: 0;
+    font-weight: bold; 
+  }
+
+  .wp-caption {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .wp-caption-text {
+      position: absolute;
+      bottom: 1px;
+      margin: 0;
+      background-color: rgba(0,0,0,0.65);
+      padding: 4px 8px;
+      display: inline-block;
+      line-height: 1.2;
+      color: white;
+      font-size: 12px;
+      left: 1px;
+  }
+
+  .gallery {
+    margin-bottom: 2rem !important;
+  }
+
+  .blocks-gallery-item {
+    padding: 0;
+  }
+
+  .blocks-gallery-item:before {
+    content: none;
+  }
+
+}

@@ -1,12 +1,13 @@
 ul, ol, dl {
   position: relative;
-  margin: 0 0 1.5em;  // 24px
+  margin: 0;
 }
 
 ul li, ol li {
-  margin-left: 1.5em;
+  margin: 0;
 }
 
+/*
 ul li:before {
   content: '•';
   position: absolute;
@@ -25,3 +26,4 @@ ol li:before {
   left: 0.5em;
   font-weight: bold;
 }
+*/
