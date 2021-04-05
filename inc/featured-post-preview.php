@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card card--featured">
   <div class="card__image">
     <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail('post-featured'); ?></a>
   </div>
@@ -8,6 +8,5 @@
       <li><?php the_time( 'j F Y' ); ?></li>
     </ul>
     <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-    <?php the_excerpt(); ?>
   </div>
 </article>

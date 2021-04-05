@@ -1,14 +1,8 @@
 .related-posts {
   margin: 0;
-  padding: 1.5rem;
-  background-color: $blue;
-  border-radius: 3px;
-  position: relative;
 
   & h2 {
-    color: $white;
     font-size: 1.5em;
-    margin-bottom: 1rem;
   }
 
   & > ul {
@@ -32,29 +26,43 @@
 }
 
 .related-post {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
 
   &__img {
+    position: relative;
     display: block;
-    border-radius: 3px 3px 0 0;
+    margin: 0;
+    //border-radius: 3px 3px 0 0;
   }
 
   &__txt {
+    @include container;
     border-radius:  0 0 3px 3px;
-    background-color: lighten($blue, 10%);
+    background-color: transparentize($red, 0.25);
     color: $white;
-    padding: 0.75rem;
     display: block;
-  }
-
-  &__txt:hover{
-    background-color: lighten($blue, 5%);
-    color: $white;
-  }
-
-
-  &__txt > h3 {
-    font-size: 1em;
     margin: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    @include flexbox;
+    @include align-items(flex-end);
+
+    h3 {
+      font-size: 1.25em;
+    }
+
   }
 
+}
+
+.related-post:hover > .related-post__txt {
+  background-color: darken($red, 5%);
+  background-color: transparentize($red, 0.15);
+  color: $white;
 }

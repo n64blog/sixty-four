@@ -7,11 +7,13 @@
  * @package sixty_four
  */
 
+ add_theme_support( 'title-tag' );
+
  /* *************************** */
  /* Add post thumbnail support. */
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'post-featured', 720, 720, array( 'center', 'top' ) ); // 720 square
-add_image_size( 'post-featured-hero', 850, 478, array( 'center', 'top' ) ); // 16:9
+add_image_size( 'post-featured', 720, 540, array( 'center', 'top' ) ); // 4:3 Medium
+add_image_size( 'post-featured-hero', 960, 720, array( 'center', 'top' ) ); // 4:3 large
 
 /* *************************** */
 /* Register widget area. */
@@ -27,6 +29,26 @@ function sixty_four_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+  register_sidebar( array(
+    'name'          => esc_html__( 'Homepage sidebar', 'sixty-four' ),
+    'id'            => 'sidebar-2',
+    'description'   => esc_html__( 'Add widgets here.', 'sixty-four' ),
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+	) );
+	
+	register_sidebar( array(
+    'name'          => esc_html__( 'Posts sidebar', 'sixty-four' ),
+    'id'            => 'sidebar-3',
+    'description'   => esc_html__( 'Add widgets here.', 'sixty-four' ),
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+  ) );
 }
 add_action( 'widgets_init', 'sixty_four_widgets_init' );
 
@@ -34,11 +56,13 @@ add_action( 'widgets_init', 'sixty_four_widgets_init' );
 /* *************************** */
 /* Enqueue scripts and styles. */
 function sixty_four_scripts() {
-	wp_enqueue_style( 'sixty-four-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'sixty-four-style', get_template_directory_uri() . '/style.min.css', array(), filemtime(get_template_directory() . '/style.min.css'), false);
 
 	// Enqueue jquery and custom script
-	wp_register_script('custom_script', home_url() . '/wp-content/themes/sixty-four/js/navigation.js', array( 'jquery' ));
-  wp_enqueue_script('custom_script');
+  wp_register_script('nav_script', home_url() . '/wp-content/themes/sixty-four/js/navigation.js', array( 'jquery' ));
+	wp_register_script('slick_script', home_url() . '/wp-content/themes/sixty-four/js/slick.js', array( 'jquery' ));
+  wp_enqueue_script('nav_script');
+  wp_enqueue_script('slick_script');
 }
 
 add_action( 'wp_enqueue_scripts', 'sixty_four_scripts' );
@@ -287,9 +311,51 @@ if(function_exists("register_field_group"))
 		'title' => 'Homepage Featured',
 		'fields' => array (
 			array (
-				'key' => 'field_59ff401e28a54',
+				'key' => 'field_5a764fae22ddb',
 				'label' => 'Featured Post',
 				'name' => 'featured_post',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5a764f94513e9',
+				'label' => 'Featured Post 2',
+				'name' => 'featured_post_2',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5a764fd0fb16f',
+				'label' => 'Featured Post 3',
+				'name' => 'featured_post_3',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5a764fe2e7485',
+				'label' => 'Featured Post 4',
+				'name' => 'featured_post_4',
 				'type' => 'post_object',
 				'post_type' => array (
 					0 => 'post',
@@ -306,7 +372,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'page',
 					'operator' => '==',
-					'value' => '158',
+					'value' => '727',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -321,6 +387,13 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
+
+// Homepage featured post 2
+
+// Homepage featured post 3
+
+// Homepage featured post 4
 
 //Related Posts
 
@@ -384,3 +457,14 @@ function wpdocs_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 add_filter( 'excerpt_length', 'wpdocs_excerpt_length', 999 );
+
+
+/* *************************** */
+/* Shortcodes */
+/* *************************** */
+// Function to add accordion shortcode
+function video_shortcode( $atts, $content = null ) {
+	$video = shortcode_atts( array(), $atts );
+	return '<div class="video">' . $content . '</div>';
+}
+add_shortcode('video', 'video_shortcode');

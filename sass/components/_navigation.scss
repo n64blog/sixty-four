@@ -6,7 +6,11 @@
   font-size: 16px;
 
   @include above-tablet {
+    min-height: 64px;
     @include flexbox;
+    @include flex-wrap(wrap);
+    @include justify-content(flex-end);
+    @include align-items(center);
   }
 
   &-item {
@@ -27,10 +31,26 @@
     padding: 1.25rem 1.5rem;
     background-color: $black;
 
+    @include above-tablet {
+      padding: 8px 16px;
+      margin: 8px 0 8px 16px;
+      background-color: transparent;
+      color: $green;
+      border: 1px solid $mid-grey;
+      border-radius: $radius;
+    }
+
   }
 
   &-item > a:hover {
     background-color: darken($black, 5%);
+
+    @include above-tablet {
+      background-color: $green;
+      color: $white;
+      border: 1px solid $green;
+    }
+
   }
 
 }
@@ -38,9 +58,10 @@
 .current-menu-item a,
 .current-post-parent a {
   background-color: $green;
+  color: $white;
 
-  &:hover {
-    background-color: darken($green, 5%);
+  @include above-tablet {
+    border: 1px solid $green;
   }
 
 }
@@ -57,12 +78,13 @@
 .menu--js--show {
 
   @include below-tablet {
-      display: block;
-      position: absolute;
-      z-index: 999999999;
-      left: 0;
-      top: 0;
-      width: calc(100% - 64px);
+    display: block;
+    position: absolute;
+    z-index: 999999999;
+    left: 0;
+    top: 112px;
+    //width: calc(100% - 64px);
+    width: 100%;
   }
 
 }
@@ -71,14 +93,15 @@
   display: block;
   position: absolute;
   z-index: 1;
-  right: 0;
-  top: 0;
+  right: 24px;
+  top: 24px;
   width: 64px;
   height: 64px;
   background-color: $green;
   text-indent: -99999px;
   overflow: hidden;
   cursor: pointer;
+  border-radius: $radius;
 
   @include above-tablet {
     display: none;
@@ -119,16 +142,68 @@
 
 .overlay--show {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #000;
   opacity: 0.8;
 
   @include above-tablet {
     display: none;
+  }
+
+}
+
+// Social
+.menu-twitter a,
+.menu-twitch a,
+.menu-facebook a {
+
+  @include above-tablet {
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 42px;
+    box-sizing: border-box;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+  }
+
+}
+
+@include above-tablet {
+
+  .menu-twitter a {
+    background-image: url('../sixty-four/images/social/twitter-color.svg');
+
+    &:hover {
+      background-image: url('../sixty-four/images/social/twitter.svg');
+
+    }
+
+  }
+
+  .menu-twitch a {
+    background-image: url('../sixty-four/images/social/twitch-color.svg');
+
+    &:hover {
+      background-image: url('../sixty-four/images/social/twitch.svg');
+
+    }
+
+  }
+
+  .menu-facebook a {
+    background-image: url('../sixty-four/images/social/facebook-color.svg');
+
+    &:hover {
+      background-image: url('../sixty-four/images/social/facebook.svg');
+
+    }
+
   }
 
 }

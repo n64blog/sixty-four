@@ -23,64 +23,149 @@
 
 	// Get featured post custom field
 	$post_object = get_field('featured_post', get_option('page_for_posts'));
+	$post_object_2 = get_field('featured_post_2', get_option('page_for_posts'));
+	$post_object_3 = get_field('featured_post_3', get_option('page_for_posts'));
+	$post_object_4 = get_field('featured_post_4', get_option('page_for_posts'));
 
 	// Omit the featured post and paginate
 	$wp_query = new WP_Query(array (
-		'post__not_in' => array($post_object->ID),
+		'post__not_in' => array($post_object->ID,$post_object_2->ID,$post_object_3->ID,$post_object_4->ID),
 		'paged' => $paged
 	));
 
 get_header(); ?>
 
-<div class="wrapper">
-	<div class="grid">
-
-		<!-- Featured Post -->
-
-		<?php
-
-		if( $post_object ):
+<section class="carousel-container">
+  <div class="center carousel">
+		<!-- Featured 1 -->
+		<?php if( $post_object ):
 
 			// override $post
 			$post = $post_object;
 			setup_postdata( $post );
 
-			?>
-			<div class="grid__col grid__col--12-of-12 grid__col--centered">
-			  <a href="<?php the_permalink(); ?>" rel="bookmark">
-			    <section class="hero">
-			      <div class="hero__img">
-			        <?php the_post_thumbnail('post-featured-hero'); ?>
-			      </div>
-			      <div class="hero__txt">
-			        <h2><?php the_title(); ?></h2>
-			      </div>
-			    </section>
-			  </a>
-			</div>
-		    <?php wp_reset_postdata(); ?>
+		?>
+    <div>
+			<a href="<?php the_permalink(); ?>" rel="bookmark">
+				<?php get_template_part('inc/featured-post', 'preview'); ?>
+			</a>
+    </div>
+		<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
+		<!-- /Featured 1 -->
 
-		<!-- Featured Post -->
+		<!-- Featured 2 -->
+		<?php if( $post_object_2 ):
+
+			// override $post
+			$post = $post_object_2;
+			setup_postdata( $post );
+
+		?>
+    <div>
+			<a href="<?php the_permalink(); ?>" rel="bookmark">
+				<?php get_template_part('inc/featured-post', 'preview'); ?>
+			</a>
+    </div>
+		<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
+		<!-- /Featured 2 -->
+
+		<!-- Featured 3 -->
+		<?php if( $post_object_3 ):
+
+			// override $post
+			$post = $post_object_3;
+			setup_postdata( $post );
+
+		?>
+    <div>
+			<a href="<?php the_permalink(); ?>" rel="bookmark">
+				<?php get_template_part('inc/featured-post', 'preview'); ?>
+			</a>
+    </div>
+		<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
+		<!-- /Featured 3 -->
+
+		<!-- Featured 4 -->
+		<?php if( $post_object_4 ):
+
+			// override $post
+			$post = $post_object_4;
+			setup_postdata( $post );
+
+		?>
+    <div>
+			<a href="<?php the_permalink(); ?>" rel="bookmark">
+				<?php get_template_part('inc/featured-post', 'preview'); ?>
+			</a>
+    </div>
+		<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
+		<!-- /Featured 4 -->
+
+  </div>
+</section>
+
+
+
+
+	<div class="wrapper">
 
 		<!-- Main Post Loop -->
-
-		<div class="grid__col grid__col--8-of-12 grid__col--centered">
-
+		<main class="main">
 			<?php if ( $wp_query->have_posts() ) : while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-			  <?php get_template_part('inc/post', 'preview'); ?>
+				<?php get_template_part('inc/post', 'preview'); ?>
 			<?php endwhile; else : ?>
 					<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 			<?php endif; ?>
-
 			<?php get_template_part('inc/pagination'); ?>
+		</main>
+		<!-- /Main Post Loop -->
 
-		</div>
+		<!-- Sidebar content -->
+		<aside class="sidebar">
 
-		<!-- Main Post Loop -->
+			<?php dynamic_sidebar( 'sidebar-2' ); ?>
+
+			<a href="/2017/05/22/n64-hori-mini-pad-review">
+				<div class="evergreen-content">
+					<img src="<?php echo get_bloginfo( 'template_directory' ); ?>/images/hori.svg" alt="">
+					<h2>N64 Hori Mini Pad review</h2>
+				</div>
+			</a>
+
+			<a href="2017/01/29/everdrive-64-guide">
+				<div class="evergreen-content">
+					<img src="<?php echo get_bloginfo( 'template_directory' ); ?>/images/everdrive.svg" alt="">
+					<h2>EverDrive 64 guide</h2>
+				</div>
+			</a>
+
+		</aside>
+		<!-- /Sidebar content -->
 
 	</div>
-</div>
+
+	<script type="text/javascript">
+		jQuery('.carousel').slick({
+		  arrows: true,
+		  centerMode: true,
+		  centerPadding: '0px',
+		  slidesToShow: 3,
+		    responsive: [
+		    {
+		      breakpoint: 960,
+		      settings: {
+		        arrows: false,
+		        centerMode: true,
+		        slidesToShow: 1
+		      }
+		    }
+		  ]
+		});
+  </script>
 
 <?php
 get_footer();

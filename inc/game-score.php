@@ -23,32 +23,26 @@
 ?>
 
 <div class="score">
-  <div class="wrapper">
-  	<div class="grid">
-  		<div class="grid__col grid__col--8-of-12">
-        <h2>Our verdict</h2>
-        <h3 class="score__title"><?php echo $score ?></h3>
-        <div class="score__bar score__bar--<?php echo $score ?>"></div>
-        <div class="breakdown">
-          <div class="breakdown__the-good">
-            <ul>
-              <?php
-                foreach($the_good as $good) {
-                  echo '<li>' . $good . '</li>';
-                } ?>
-            </ul>
-          </div>
-          <div class="breakdown__the-bad">
-            <ul>
-              <?php
-                foreach($the_bad as $bad) {
-                  echo '<li>' . $bad . '</li>';
-                } ?>
-            </ul>
-          </div>
-        </div>
-        <p>To learn more about how review N64 games see our <a href="http://n64today.com/our-game-review-scoring-system-explained">review scoring system page</a>. Because we focus on whether a game is still enjoyable to play today, we try to avoid discussing a game’s development history, impact or legacy in our reviews.</p>
-      </div>
-  	</div>
+  <h2>Verdict</h2>
+  <h3 class="score__title"><?php echo $score ?></h3>
+  <div class="score__bar score__bar--<?php echo $score ?>"></div>
+  <div class="breakdown">
+    <div class="breakdown__the-good">
+      <ul>
+        <?php
+          foreach($the_good as $good) {
+            echo '<li>' . $good . '</li>';
+          } ?>
+      </ul>
+    </div>
+    <div class="breakdown__the-bad">
+      <ul>
+        <?php
+          foreach($the_bad as $bad) {
+            echo '<li>' . $bad . '</li>';
+          } ?>
+      </ul>
+    </div>
   </div>
+  <p class="scoring-policy">N64 Today's reviews focus on whether a game is still enjoyable to play today. As a result, they do not factor a game’s development history, impact or legacy into the final score. Find out more about the <a href="https://n64today.com/game-review-scoring-system/">review scoring system</a>. </p>
 </div>

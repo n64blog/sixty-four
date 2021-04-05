@@ -12,33 +12,22 @@ get_header(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<div class="wrapper">
-
-	<h1 class="page-title"><?php the_title(); ?></h1>
-	<p class="page-byline">by <?php the_author(); ?>, <?php the_date('j F Y') ?></p>
-
-	<div class="grid">
-		<div class="grid__col grid__col--8-of-12">
-			<div class="post-content">
-				<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
-				<?php the_content(); ?>
-			</div>
-		</div>
-
-		<div class="grid__col grid__col--4-of-12">
-			<!-- Game meta -->
+	<div class="wrapper post">
+		<header class="post__header">
+			<h1><?php the_title(); ?></h1>
+			<p>by <?php the_author(); ?>, <?php the_date('j F Y') ?></p>
+		</header>
+		<main class="main post__content gutenberg">
+			<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
+			<?php the_content(); ?>
+			<?php get_template_part('inc/game', 'score'); ?>
+		</main>
+		<aside class="sidebar post__sidebar">
 			<?php get_template_part('inc/game', 'meta'); ?>
-			<!--/ Game meta -->
-
-			<!-- Related Posts -->
+			<?php dynamic_sidebar( 'sidebar-3' ); ?>
 			<?php get_template_part('inc/related-posts'); ?>
-			<!--/ Related Posts -->
-		</div>
+		</aside>
 	</div>
-
-</div>
-
-<?php get_template_part('inc/game', 'score'); ?>
 
 <?php endwhile; endif; ?>
 

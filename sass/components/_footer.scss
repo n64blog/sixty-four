@@ -1,15 +1,10 @@
 .footer {
-  background-color: $black;
-  padding: 1.5em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: $white;
+  padding: $gutter 0;
+}
 
-  &__copyright {
-    margin: 0;
-    color: $white;
-    font-family: $font-display;
-    font-size: 0.75em;
-  }
-
+.copyright-notice {
+  margin: 0;
+  font-family: $font-display;
+  font-size: 0.75em;
 }
