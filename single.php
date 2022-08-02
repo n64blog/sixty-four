@@ -14,11 +14,12 @@ get_header(); ?>
 	<div class="wrapper post">
 		<header class="post__header">
 			<h1><?php the_title(); ?></h1>
-			<p>by <?php the_author(); ?>, <?php the_date('j F Y') ?></p>
+			<p><a href="#author-bio">by <?php the_author(); ?></a>, <?php the_date('j F Y') ?></p>
 		</header>
 		<main class="main post__content gutenberg">
 			<?php the_post_thumbnail('post-featured', array('class' => 'featured-img')); ?>
 			<?php the_content(); ?>
+			<?php get_template_part('inc/author-bio'); ?>
 		</main>
 		<aside class="sidebar post__sidebar">
 			<?php dynamic_sidebar( 'sidebar-3' ); ?>

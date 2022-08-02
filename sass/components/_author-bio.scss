@@ -1,0 +1,50 @@
+.author-bio {
+  margin-top: 1.5rem;
+  background-color: $white;
+  border: 1px solid $mid-grey;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.author-bio__image {
+  padding: 0.75rem;
+  flex: 20% 1 1;
+  box-sizing: border-box;
+
+  img {
+    border-radius: 3px;
+  }
+
+}
+
+.author-bio__text {
+  padding: 0.75rem;
+  flex: 80% 1 1;
+  box-sizing: border-box;
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    display: flex;
+    margin: -0.25rem;
+  }
+
+  ul li {
+    padding: 0.25rem;
+  }
+
+  ul li:before {
+    content: none;
+  }
+
+}
